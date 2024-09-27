@@ -1,0 +1,5 @@
+# .htaccess
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/crawler\.php$ api/crawler.php [QSA,L]

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>E-poodide Analüüs Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>E-poodide Analüüs Dashboard</h1>
+    <div class="controls">
+        <button id="crawlButton">Alusta Kaapimist</button>
+        <input type="text" id="searchInput" placeholder="Otsi kategooriaid...">
+    </div>
+    <div id="status"></div>
+    <div class="dashboard">
+        <div class="chart-container">
+            <h2>Kategooriate Jaotus</h2>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Hinnaklassi Jaotus</h2>
+            <canvas id="priceChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h2>Populaarsuse Trend</h2>
+            <canvas id="popularityChart"></canvas>
+        </div>
+        <div class="table-container">
+            <h2>Kategooriad</h2>
+            <table id="categoriesTable">
+                <thead>
+                    <tr>
+                        <th>Kategooria</th>
+                        <th>Toodete Arv</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Kategooriad lisatakse siin -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
