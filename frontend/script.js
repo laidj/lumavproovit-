@@ -1,7 +1,6 @@
-// script.js
 
-const API_URL = 'http://your-backend-domain.com/api/crawler.php'; // Asenda oma backend URL-iga
-const API_KEY = 'YOUR_SECURE_API_KEY'; // Asenda oma API võtmega
+const API_URL = 'http://localhost:8000/backend/api/crawler.php';
+const API_KEY = 'adfj23jf0f923r9fj20fj023fj';
 
 document.getElementById('crawlButton').addEventListener('click', () => {
     startCrawling();
@@ -11,12 +10,12 @@ document.getElementById('searchInput').addEventListener('input', function() {
     filterCategories(this.value);
 });
 
-function startCrawling() {
+async function startCrawling() {
     document.getElementById('status').innerText = 'Kaapimine käib...';
     fetch(API_URL, {
         method: 'GET',
         headers: {
-            'Authorization': 'Bearer ' + API_KEY
+            'Authorization': 'Bearer adfj23jf0f923r9fj20fj023fj' + API_KEY
         }
     })
     .then(response => {
@@ -38,10 +37,7 @@ function startCrawling() {
 let categoryChart, priceChart, popularityChart;
 
 function displayData(data) {
-    // Kuva kategooriad tabelis
     populateCategoriesTable(data.categories);
-
-    // Joonista kategooriate graafik
     const categoryCtx = document.getElementById('categoryChart').getContext('2d');
     if (categoryChart) categoryChart.destroy();
     categoryChart = new Chart(categoryCtx, {
@@ -58,7 +54,6 @@ function displayData(data) {
         }
     });
 
-    // Hinnaklassi jaotus (näiteks jagatud vahemikesse)
     const priceRanges = {
         '0-50': 0,
         '51-100': 0,
@@ -93,7 +88,6 @@ function displayData(data) {
         }
     });
 
-    // Populaarsuse trend (näiteks toodete arv kategooriate kaupa)
     const popularityCtx = document.getElementById('popularityChart').getContext('2d');
     if (popularityChart) popularityChart.destroy();
     popularityChart = new Chart(popularityCtx, {
@@ -116,7 +110,7 @@ function displayData(data) {
 
 function populateCategoriesTable(categories) {
     const tableBody = document.querySelector('#categoriesTable tbody');
-    tableBody.innerHTML = ''; // Tühjenda tabel
+    tableBody.innerHTML = '';
 
     for (const [category, count] of Object.entries(categories)) {
         const row = tableBody.insertRow();
